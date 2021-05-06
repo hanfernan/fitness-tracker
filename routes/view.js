@@ -24,3 +24,4 @@ router.post("/", ({ body }, res) => {
 
 //view the total duration of each workout from the past seven workouts on the stats page.
 
+module.exports = Workout; 

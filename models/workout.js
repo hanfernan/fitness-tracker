@@ -44,6 +44,7 @@ const WorkoutSchema = new Schema({
 
 });
 
+//custom methods to check if exercise is cardio or resistance
 //TODO: is this the best way to do this?
 
 WorkoutSchema.methods.isCardio = function() {
