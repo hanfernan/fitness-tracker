@@ -2,11 +2,8 @@ const router = require("express").Router();
 const Workout = require("../models/workout");
 
 //add exercise to most recent workout plan
-router.post("/", ({ body }, res) => {
+router.post("/workouts", ({ body }, res) => {
     const exercise = new Workout(body);
-
-    exercise.isCardio();
-    exercise.isResist();
 
     Workout.create(exercise)
         .then(dbWorkout => {

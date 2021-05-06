@@ -44,17 +44,5 @@ const WorkoutSchema = new Schema({
 
 });
 
-//custom methods to check if exercise is cardio or resistance
-//TODO: is this the best way to do this?
-
-WorkoutSchema.methods.isCardio = function() {
-    this.exercises.type = "cardio";
-    return this.exercises.type
-};
-
-WorkoutSchema.methods.isResist = function() {
-    this.exercises.type = "resistance";
-    return this.exercises.type
-};
 const Workout = mongoose.model("Workout", WorkoutSchema);
 module.exports = Workout;
