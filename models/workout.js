@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const workoutSchema = new Schema({
+const WorkoutSchema = new Schema({
     day: {
         type: Date,
         default: Date.now
@@ -12,7 +12,7 @@ const workoutSchema = new Schema({
             type: {
                 type: String,
                 trim: true,
-                required: "Enter a type for exercise"
+                required: "Enter resistance or cardio"
             },
             name: {
                 type: String,
@@ -44,5 +44,16 @@ const workoutSchema = new Schema({
 
 });
 
-const Workout = mongoose.model("Workout", workoutSchema);
+//TODO: is this the best way to do this?
+
+WorkoutSchema.methods.isCardio = function() {
+    this.exercises.type = "cardio";
+    return this.exercises.type
+};
+
+WorkoutSchema.methods.isResist = function() {
+    this.exercises.type = "resistance";
+    return this.exercises.type
+};
+const Workout = mongoose.model("Workout", WorkoutSchema);
 module.exports = Workout;
